@@ -534,7 +534,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 904543072}
         m_TargetAssemblyTypeName: ScaleChanger, Assembly-CSharp
-        m_MethodName: IncreaseSizeUp
+        m_MethodName: ResizeUp
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -550,7 +550,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 904543072}
         m_TargetAssemblyTypeName: ScaleChanger, Assembly-CSharp
-        m_MethodName: DecreaseSizeDown
+        m_MethodName: ResizeDown
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -563,11 +563,35 @@ MonoBehaviour:
     m_ActionId: 63b624f4-d774-4ed0-9ba9-a5ff821dc73f
     m_ActionName: 'Player/Resize-Down[/Keyboard/downArrow]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 904543072}
+        m_TargetAssemblyTypeName: ScaleChanger, Assembly-CSharp
+        m_MethodName: ResizeRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 6a97e476-99b6-4ebb-9edc-5fa027c7f6b3
     m_ActionName: 'Player/Resize-Stretch[/Keyboard/rightArrow]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 904543072}
+        m_TargetAssemblyTypeName: ScaleChanger, Assembly-CSharp
+        m_MethodName: ResizeLeft
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 70e9201b-ab2e-4c79-9f83-575412820a02
     m_ActionName: 'Player/Resize-Shrink[/Keyboard/leftArrow]'
   - m_PersistentCalls:
@@ -586,6 +610,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e12403fb-def8-4832-8477-15aebf86e2ca
     m_ActionName: 'Player/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a6fd5e40-1b98-4ebd-8e0a-63b34edd2953
+    m_ActionName: 'Player/Shrink Switch[/Keyboard/shift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -690,7 +718,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.67, y: 3.33, z: 0}
-  m_LocalScale: {x: 2, y: 5, z: 1}
+  m_LocalScale: {x: 5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -717,7 +745,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80

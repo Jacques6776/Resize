@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Resize-Stretch",
+                    "name": "Resize-Right",
                     "type": "Button",
                     "id": "6a97e476-99b6-4ebb-9edc-5fa027c7f6b3",
                     "expectedControlType": "",
@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Resize-Shrink",
+                    "name": "Resize-Left",
                     "type": "Button",
                     "id": "70e9201b-ab2e-4c79-9f83-575412820a02",
                     "expectedControlType": "",
@@ -54,6 +54,15 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "e12403fb-def8-4832-8477-15aebf86e2ca",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shrink Switch",
+                    "type": "Button",
+                    "id": "a6fd5e40-1b98-4ebd-8e0a-63b34edd2953",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -123,7 +132,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Resize-Stretch",
+                    "action": "Resize-Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -134,7 +143,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Resize-Shrink",
+                    "action": "Resize-Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -146,6 +155,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f2c6efd-a41e-4ac1-ad99-cd133b394946",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shrink Switch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
