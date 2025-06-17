@@ -16,6 +16,8 @@ public class ScaleChanger : MonoBehaviour
     private bool upHeld = false;
     private bool downHeld = false;
 
+    public bool shrinkSwitch = false;
+
     [SerializeField]
     private float scaleDecrease = 0.1f;
 
@@ -79,6 +81,18 @@ public class ScaleChanger : MonoBehaviour
         }
     }
 
+    public void ShrinkSwitch(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            shrinkSwitch = true;
+        }
+        if (context.canceled)
+        {
+            shrinkSwitch = false;
+        }
+    }
+
     public void ResizeUp(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -129,61 +143,121 @@ public class ScaleChanger : MonoBehaviour
 
     private void ResizeRightCalculation()
     {
-        if(transform.localScale.y <= 0.2f)
+        if (!shrinkSwitch)
         {
-            return;
-        }
+            if (transform.localScale.y <= 0.2f)
+            {
+                return;
+            }
 
-        if(transform.localScale.y > 0f)
+            if (transform.localScale.y > 0f)
+            {
+                transform.position = new Vector3(transform.position.x + (scaleIncrease / 2), transform.position.y, transform.position.z);
+                transform.localScale = new Vector3(transform.localScale.x + scaleIncrease, transform.localScale.y - scaleIncrease, transform.localScale.z);
+            }
+        }
+        else
         {
-            //transform.localScale += new Vector3(-scaleDecrease, scaleIncrease, 0f);
-            //transform.position += new Vector3(0f, 0.05f, 0f);
-            transform.position = new Vector3(transform.position.x + (scaleIncrease / 2), transform.position.y - 0.1f, transform.position.z);
-            transform.localScale = new Vector3(transform.localScale.x + scaleIncrease, transform.localScale.y - scaleIncrease, transform.localScale.z);
+            if (transform.localScale.x <= 0.2f)
+            {
+                return;
+            }
+
+            if (shrinkSwitch && transform.localScale.x > 0f)
+            {
+                transform.position = new Vector3(transform.position.x - (scaleIncrease / 2), transform.position.y, transform.position.z);
+                transform.localScale = new Vector3(transform.localScale.x - scaleIncrease, transform.localScale.y + scaleIncrease, transform.localScale.z);
+            }
         }
     }
 
     private void ResizeLeftCalculation()
     {
-        if (transform.localScale.y <= 0.2f)
+        if (!shrinkSwitch)
         {
-            return;
-        }
+            if (transform.localScale.y <= 0.2f)
+            {
+                return;
+            }
 
-        if (transform.localScale.y > 0f)
+            if (transform.localScale.y > 0f)
+            {
+                transform.position = new Vector3(transform.position.x - (scaleIncrease / 2), transform.position.y, transform.position.z);
+                transform.localScale = new Vector3(transform.localScale.x + scaleIncrease, transform.localScale.y - scaleIncrease, transform.localScale.z);
+            }
+        }
+        else
         {
-            //transform.localScale -= new Vector3(-scaleDecrease, scaleDecrease, 0f);
-            //transform.position -= new Vector3(0f, 0.05f, 0f);
-            transform.position = new Vector3(transform.position.x - (scaleIncrease / 2), transform.position.y - 0.1f, transform.position.z);
-            transform.localScale = new Vector3(transform.localScale.x + scaleIncrease, transform.localScale.y - scaleIncrease, transform.localScale.z);
+            if (transform.localScale.x <= 0.2f)
+            {
+                return;
+            }
+
+            if (transform.localScale.x > 0f)
+            {
+                transform.position = new Vector3(transform.position.x + (scaleIncrease / 2), transform.position.y, transform.position.z);
+                transform.localScale = new Vector3(transform.localScale.x - scaleIncrease, transform.localScale.y + scaleIncrease, transform.localScale.z);
+            }
         }
     }
 
     private void ResizeUpCalculation()
     {
-        if (transform.localScale.x <= 0.2f)
+        if (!shrinkSwitch)
         {
-            return;
-        }
+            if (transform.localScale.x <= 0.2f)
+            {
+                return;
+            }
 
-        if (transform.localScale.x > 0f)
+            if (transform.localScale.x > 0f)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y + (scaleIncrease / 2), transform.position.z);
+                transform.localScale = new Vector3(transform.localScale.x - scaleIncrease, transform.localScale.y + scaleIncrease, transform.localScale.z);
+            }
+        }
+        else
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y + (scaleIncrease / 2), transform.position.z);
-            transform.localScale = new Vector3(transform.localScale.x - scaleIncrease, transform.localScale.y + scaleIncrease, transform.localScale.z);
+            if (transform.localScale.y <= 0.2f)
+            {
+                return;
+            }
+
+            if (transform.localScale.y > 0f)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - (scaleIncrease / 2), transform.position.z);
+                transform.localScale = new Vector3(transform.localScale.x + scaleIncrease, transform.localScale.y - scaleIncrease, transform.localScale.z);
+            }
         }
     }
 
     private void ResizeDownCalculation()
     {
-        if (transform.localScale.x <= 0.2f)
+        if (!shrinkSwitch)
         {
-            return;
-        }
+            if (transform.localScale.x <= 0.2f)
+            {
+                return;
+            }
 
-        if (transform.localScale.x > 0f)
+            if (transform.localScale.x > 0f)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y - (scaleIncrease / 2), transform.position.z);
+                transform.localScale = new Vector3(transform.localScale.x - scaleIncrease, transform.localScale.y + scaleIncrease, transform.localScale.z);
+            }
+        }
+        else
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y - (scaleIncrease / 2), transform.position.z);
-            transform.localScale = new Vector3(transform.localScale.x - scaleIncrease, transform.localScale.y + scaleIncrease, transform.localScale.z);
+            if (transform.localScale.y <= 0.2f)
+            {
+                return;
+            }
+
+            if (transform.localScale.y > 0f)
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y + (scaleIncrease / 2), transform.position.z);
+                transform.localScale = new Vector3(transform.localScale.x + scaleIncrease, transform.localScale.y - scaleIncrease, transform.localScale.z);
+            }
         }
     }
 }
