@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class ScaleChanger : MonoBehaviour
 {
@@ -21,6 +22,12 @@ public class ScaleChanger : MonoBehaviour
     [SerializeField]
     private float scaleDecrease = 0.1f;
 
+    //Restriction bools
+    private bool upRestriction = false;
+    private bool downRestriction = false;
+    private bool rightRestriction = false;
+    private bool leftRestriction = false;
+
     private void Update()
     {
         ScaleListener();
@@ -28,6 +35,7 @@ public class ScaleChanger : MonoBehaviour
 
     private void ScaleListener()
     {
+        
         if (rightHeld)
         {
             if (heldTimer < heldTimerMax)
