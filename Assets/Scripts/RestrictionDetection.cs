@@ -1,16 +1,87 @@
 using UnityEngine;
 
-public class RestrictionDetection : ScaleChanger
+public class RestrictionDetection : MonoBehaviour
 {
-    enum Direction { Up, Down, Left, Right }
+    [SerializeField]
+    private CollisionDirections blockDirection;
 
-    private void Awake()
+    private ScaleChanger scaleChanger;
+
+    private int setDirection;
+    
+    void Start()
     {
-        SetRestrictionDirection();
+        scaleChanger = FindFirstObjectByType<ScaleChanger>();
+
+        switch (blockDirection)
+        {
+            case CollisionDirections.RestrictUp:
+                setDirection = 0;
+                break;
+
+            case CollisionDirections.RestrictDown:
+                setDirection = 1;
+                break;
+
+            case CollisionDirections.RestrictLeft:
+                setDirection = 2;
+                break;
+
+            case CollisionDirections.RestrictRight:
+                setDirection = 3;
+                break;
+        }
     }
 
-    private Direction SetRestrictionDirection()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            if (setDirection == 0)
+            {
+                scaleChanger.upRestriction = true;
+            }
+
+            if (setDirection == 1)
+            {
+                scaleChanger.downRestriction = true;
+            }
+
+            if (setDirection == 2)
+            {
+                scaleChanger.leftRestriction = true;
+            }
+
+            if (setDirection == 3)
+            {
+                scaleChanger.rightRestriction = true;
+            }
+        }        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            if (setDirection == 0)
+            {
+                scaleChanger.upRestriction = false;
+            }
+
+            if (setDirection == 1)
+            {
+                scaleChanger.downRestriction = false;
+            }
+
+            if (setDirection == 2)
+            {
+                scaleChanger.leftRestriction = false;
+            }
+
+            if (setDirection == 3)
+            {
+                scaleChanger.rightRestriction = false;
+            }
+        }
     }
 }

@@ -23,10 +23,10 @@ public class ScaleChanger : MonoBehaviour
     private float scaleDecrease = 0.1f;
 
     //Restriction bools
-    private bool upRestriction = false;
-    private bool downRestriction = false;
-    private bool rightRestriction = false;
-    private bool leftRestriction = false;
+    public bool upRestriction = false;
+    public bool downRestriction = false;
+    public bool rightRestriction = false;
+    public bool leftRestriction = false;
 
     private void Update()
     {
@@ -35,32 +35,6 @@ public class ScaleChanger : MonoBehaviour
 
     private void ScaleListener()
     {
-        
-        if (rightHeld)
-        {
-            if (heldTimer < heldTimerMax)
-            {
-                heldTimer += Time.deltaTime;
-            }
-            if (heldTimer >= heldTimerMax)
-            {
-                heldTimer = 0f;
-                ResizeRightCalculation();
-            }
-        }
-
-        if (leftHeld)
-        {
-            if (heldTimer < heldTimerMax)
-            {
-                heldTimer += Time.deltaTime;
-            }
-            if (heldTimer >= heldTimerMax)
-            {
-                heldTimer = 0f;
-                ResizeLeftCalculation();
-            }
-        }
 
         if (upHeld)
         {
@@ -85,6 +59,32 @@ public class ScaleChanger : MonoBehaviour
             {
                 heldTimer = 0f;
                 ResizeDownCalculation();
+            }
+        }
+
+        if (leftHeld)
+        {
+            if (heldTimer < heldTimerMax)
+            {
+                heldTimer += Time.deltaTime;
+            }
+            if (heldTimer >= heldTimerMax)
+            {
+                heldTimer = 0f;
+                ResizeLeftCalculation();
+            }
+        }
+
+        if (rightHeld)
+        {
+            if (heldTimer < heldTimerMax)
+            {
+                heldTimer += Time.deltaTime;
+            }
+            if (heldTimer >= heldTimerMax)
+            {
+                heldTimer = 0f;
+                ResizeRightCalculation();
             }
         }
     }
@@ -151,7 +151,7 @@ public class ScaleChanger : MonoBehaviour
 
     private void ResizeRightCalculation()
     {
-        if (!shrinkSwitch)
+        if (!shrinkSwitch && !rightRestriction)
         {
             if (transform.localScale.y <= 0.2f)
             {
@@ -181,7 +181,7 @@ public class ScaleChanger : MonoBehaviour
 
     private void ResizeLeftCalculation()
     {
-        if (!shrinkSwitch)
+        if (!shrinkSwitch && !leftRestriction)
         {
             if (transform.localScale.y <= 0.2f)
             {
@@ -211,7 +211,7 @@ public class ScaleChanger : MonoBehaviour
 
     private void ResizeUpCalculation()
     {
-        if (!shrinkSwitch)
+        if (!shrinkSwitch && !upRestriction)
         {
             if (transform.localScale.x <= 0.2f)
             {
@@ -241,7 +241,7 @@ public class ScaleChanger : MonoBehaviour
 
     private void ResizeDownCalculation()
     {
-        if (!shrinkSwitch)
+        if (!shrinkSwitch && !downRestriction)
         {
             if (transform.localScale.x <= 0.2f)
             {

@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 189393178}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Ground
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,6 +227,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189393176}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &389517428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 389517430}
+  - component: {fileID: 389517429}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &389517429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389517428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d83ef95a445f1b40b0b5e838f79e52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockDirection: 0
+--- !u!4 &389517430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389517428}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.74566, y: -0.5, z: -5.83279}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &458644650
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +403,7 @@ Transform:
   m_GameObject: {fileID: 458644650}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: -16}
+  m_LocalPosition: {x: -9.39, y: 0, z: -16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -378,7 +423,7 @@ GameObject:
   - component: {fileID: 894811405}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: Wall
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,7 +437,7 @@ Transform:
   m_GameObject: {fileID: 894811403}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.2823, z: 0}
+  m_LocalPosition: {x: -5.77, y: 1.74, z: 0}
   m_LocalScale: {x: 5, y: 4.4355, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -486,7 +531,7 @@ GameObject:
   - component: {fileID: 1049681398}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Wall
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -710,12 +755,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 122548628011214266, guid: cd421d578fb516b4f8fa986e87823e55, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 122548628011214266, guid: cd421d578fb516b4f8fa986e87823e55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.91
+      value: -8.97
       objectReference: {fileID: 0}
     - target: {fileID: 122548628011214266, guid: cd421d578fb516b4f8fa986e87823e55, type: 3}
       propertyPath: m_LocalPosition.y
@@ -753,13 +794,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2644197742560597972, guid: cd421d578fb516b4f8fa986e87823e55, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4553730284731742557, guid: cd421d578fb516b4f8fa986e87823e55, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7250500894359885590, guid: cd421d578fb516b4f8fa986e87823e55, type: 3}
+      propertyPath: upRestriction
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -808,3 +849,4 @@ SceneRoots:
   - {fileID: 2017845102}
   - {fileID: 1448084106}
   - {fileID: 458644654}
+  - {fileID: 389517430}
